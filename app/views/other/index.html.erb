@@ -1,7 +1,7 @@
 <h1>This is another page</h1>
 <div><%= link_to "go to home page", root_path %></div>
 
-<div style="margin-top: 3rem;">
+<div style="margin-top: 2rem;">
   <%= form_with scope: :any, url: post_something_path do |form| %>
       <%= form.submit 'Post something' %>
   <% end %>
@@ -9,3 +9,16 @@
     <div>An empty message</div>
   </turbo-frame>
 </div>
+
+<div style="margin-top: 2rem;">
+  <h2>Stimulus</h2>  
+  <div data-controller="hello">
+    <input data-hello-target="name" type="text">
+    <button data-action="click->hello#greet">
+      Greet
+    </button>
+    <span data-hello-target="output">
+    </span>
+  </div>
+</div>
+
