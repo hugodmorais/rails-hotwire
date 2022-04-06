@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
+    # request.variant
+    request.variant = Current.user.admin? ? :admin : :user
   end
 
   # GET /articles/new
