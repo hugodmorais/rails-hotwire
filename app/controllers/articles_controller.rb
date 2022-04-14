@@ -3,12 +3,14 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    @articles = articles
+    @query = query
   end
 
   # GET /articles/1 or /articles/1.json
   def show
     # request.variant
+    @article = Article.find(params[:id])
     request.variant = Current.user.admin? ? :admin : :user
   end
 
@@ -63,6 +65,18 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def articles
+      if query
+        Article.where("title ILIKE ?", "%#{query}%")
+      else
+        Article.all
+      end
+    end
+
+    def query
+      params[:query]
     end
 
     # Only allow a list of trusted parameters through.
