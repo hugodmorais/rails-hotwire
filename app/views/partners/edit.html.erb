@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "partner" do %>
   <%= render 'form', partner: @partner %>
-
+  
   <%= link_to 'Show', @partner %> |
-  <%= link_to 'Back', users_path, data: { "turbo-frame": "_top" } %>
+  <%= link_to 'Back', partners_path, data: { "turbo-frame": "_top" } %>
 <% end %>

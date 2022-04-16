@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :partners do
+    collection do
+      post :search, to: "partners/searches#index"
+    end
+  end
   resources :articles
   get 'home/index'
   get 'other/index'

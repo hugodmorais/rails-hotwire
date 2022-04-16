@@ -3,7 +3,13 @@ class PartnersController < ApplicationController
 
   # GET /partners or /partners.json
   def index
-    @partners = Partner.all
+    @partners = if params[:search_term].present?
+      # Since we're using this in two controllers now it might be
+      # wise to abstract it out into a Model method
+      Partner.where("name LIKE :name", name: "%#{params[:search_term]}%")
+    else
+      Partner.all
+    end
   end
 
   # GET /partners/1 or /partners/1.json
