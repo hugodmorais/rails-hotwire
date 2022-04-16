@@ -1,0 +1,18 @@
+<!--app/views/partners/_listing.html.erb-->
+<tbody id="partnerListing">
+  <% @partners.each do |partner| %>
+    <tr>
+      <td><%= partner.name %></td>
+      <td><%= link_to 'Show', partner %></td>
+      <td><%= link_to 'Edit', edit_partner_path(partner) %></td>
+      <td><%= link_to 'Destroy', partner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+  <!-- Blank state -->
+  <% if @partners.empty? %>
+    <tr>
+      <td><em>No matching partners</em></td>
+    </tr>
+  <% end %>
+</tbody>

@@ -1,0 +1,13 @@
+<h1>Partner Managment</h1>
+
+<%= turbo_frame_tag "partner" do %>
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @partner.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_partner_path(@partner) %> |
+  <%= link_to 'Back', users_path, data: { "turbo-frame": "_top" } %>
+<% end %>
