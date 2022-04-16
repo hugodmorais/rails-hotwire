@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :players
   resources :partners do
     collection do
       post :search, to: "partners/searches#index"
